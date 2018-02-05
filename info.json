@@ -1,8 +1,8 @@
 {
-	"title" : "TicTacToe with React.js",
-	"slug" : "tictactoe-react",
-	"duration" : 16,
-	"description" : "Create a simple tictactoe using the React.js framework",
+	"title" : "Todolist application with React",
+	"slug" : "todolist-react",
+	"duration" : 10,
+	"description" : "Create a simple todo application using the React.js framework",
 	"talents": [
 		{ "badge": "tag-master", "points": 10 },
 		{ "badge": "select-everything", "points": 5 },
