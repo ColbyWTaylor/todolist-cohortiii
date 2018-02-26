@@ -1,7 +1,7 @@
 {
 	"title" : "Todolist application with React",
 	"slug" : "todo-list",
-	"duration" : 10,
+	"duration" : 16,
 	"description" : "Create a simple todo application using the React.js framework",
 	"talents": [
 		{ "badge": "tag-master", "points": 10 },
