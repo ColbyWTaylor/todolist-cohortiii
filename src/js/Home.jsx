@@ -1,6 +1,6 @@
 import React from 'react';
 
-import todoStore from './stores/todoStore';
+import {todoStore} from './stores/todoStore';
 import * as todoActions from './actions/todoActions';
 
 export class Home extends React.Component {
@@ -38,7 +38,7 @@ export class Home extends React.Component {
 	       return (<li key={task.id}>
                   <div className="view">
                     <label>{task.title}</label>
-                    <button className="destroy"></button>
+                    <button className="destroy" onClick={() => todoActions.deleteTask(task.id)}></button>
                   </div>
                 </li>);
 	    });
