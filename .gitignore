@@ -2,7 +2,7 @@
 node_modules/
 
 #ignore the bundle files
-./public/*
+public/*
 
 #don't ignore any gitkeep file
 !.gitkeep
