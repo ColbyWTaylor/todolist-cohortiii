@@ -1,9 +1,10 @@
 import React from 'react';
 
-import {todoStore} from './stores/todoStore';
-import * as todoActions from './actions/todoActions';
+import Flux from 'react-flux-dash';
+import todoStore from './stores/todoStore';
+import todoActions from './actions/todoActions';
 
-export class Home extends React.Component {
+export default class Home extends Flux.View {
     
     constructor(){
         super();
@@ -12,15 +13,14 @@ export class Home extends React.Component {
           data: todoStore.getAllTasks(),
           taskInput: ''
         };
+        this.bindStore(todoStore, this.handleStoreChanges.bind(this));
     }
     
-    componentDidMount(){
-        todoStore.on('change', () => {
-            console.log('change on the state', todoStore.getAllTasks());
-            this.setState({ 
-    		      data: todoStore.getAllTasks()
-    		    });
-        });
+    handleStoreChanges(todoData){
+        console.log('change on the state', todoStore.getAllTasks());
+        this.setState({ 
+		      data: todoStore.getAllTasks()
+		    });
     }
     
     handleFormSubmit(e) {

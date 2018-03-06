@@ -1,6 +1,6 @@
-import {FluxStore} from '../DashFlux';
+import Flux from 'react-flux-dash';
 
-class TodoStore extends FluxStore{
+class _TodoStore extends Flux.Store{
     
     constructor(){
         
@@ -19,7 +19,7 @@ class TodoStore extends FluxStore{
         return this.state.todos;
     }
     
-    addTask(data){
+    _addTask(data){
         console.log('Add this task: ',data);
         this.setStoreState({
             todos: this.state.todos.concat([{
@@ -27,24 +27,15 @@ class TodoStore extends FluxStore{
                 title: data,
                 id: (Math.random()*10)
             }])
-        });
+        }).emit();
     }
-
-    deleteTask(taskId){
+    _removeTask(taskId){
         console.log('deleting the task');
         this.setStoreState({
             todos: this.state.todos.filter((task) => task.id!=taskId)
-        });
+        }).emit();
     }
     
-    handleActions(action){
-        console.log('We have received the action', action);
-        switch(action.actionType)
-        {
-            case "TODO_ADD_TASK": this.addTask(action.actionData); break;
-            case "TODO_DELETE_TASK": this.deleteTask(action.actionData); break;
-        }
-        
-    }
 }
-export var todoStore = new TodoStore();
+var todoStore = new _TodoStore();
+export default todoStore;

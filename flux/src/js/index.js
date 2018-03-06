@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import '../styles/index.scss';
 
 //Importing the Home class component
-import {Home} from './Home.jsx';
+import Home from './Home.jsx';
 
 // Render application to DOM
 ReactDOM.render(

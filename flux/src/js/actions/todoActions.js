@@ -1,15 +1,13 @@
-import {FluxDispatcher} from '../DashFlux';
+import Flux from 'react-flux-dash';
 
-export function addTask(task){
-  FluxDispatcher.dispatch({
-    actionType: 'TODO_ADD_TASK',
-    actionData: task
-  });
+class _TodoActions extends Flux.Action{
+  addTask(task){
+    this.dispatch('TodoStore.addTask',task);
+  }
+  
+  deleteTask(taskId){
+    this.dispatch('TodoStore.removeTask',taskId);
+  }
 }
-
-export function deleteTask(taskId){
-  FluxDispatcher.dispatch({
-    actionType: 'TODO_DELETE_TASK',
-    actionData: taskId
-  });
-}
+var TodoActions = new _TodoActions();
+export default TodoActions;
